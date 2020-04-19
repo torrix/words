@@ -1,17 +1,38 @@
 <div>
+    <div class="uk-panel uk-background-muted uk-padding-small uk-margin-top">
+        <div class="uk-flex uk-flex-center">
+            @foreach($letters as $letter)
+                <div class="uk-card uk-card-body uk-card-small uk-card-primary uk-width-small uk-margin-small-right">
+                    <div class="uk-text-center">{{ $letter }}</div>
+                </div>
+            @endforeach
+            @for ($i = 1; $i <= 9 - count($letters); $i++)
+                <div class="uk-card uk-card-body uk-card-small uk-card-default uk-width-small uk-margin-small-right">
+                    <div class="uk-text-center">&nbsp;</div>
+                </div>
+            @endfor
+        </div>
+    </div>
+    <hr>
     <div class="uk-grid uk-flex-middle" data-uk-grid>
         @if (count($letters) !== 9)
-            <div class="uk-width-expand">
-                <button class="uk-button uk-button-primary uk-button-large" wire:click="vowel">
+            <div class="uk-width-auto@s uk-width-1-2">
+                <button class="uk-button uk-button-primary uk-button-large uk-width-1-1"
+                        wire:click="vowel">
                     Vowel
                 </button>
-                <button class="uk-button uk-button-primary uk-button-large" wire:click="consonant">
+            </div>
+            <div class="uk-width-auto@s uk-width-1-2">
+                <button class="uk-button uk-button-primary uk-button-large uk-width-1-1"
+                        wire:click="consonant">
                     Consonant
                 </button>
             </div>
+            <div class="uk-width-expand@s uk-visible@s"></div>
         @else
-            <div class="uk-width-auto">
-                <button class="uk-button uk-button-primary uk-button-large" onclick="start_countdown()">
+            <div class="uk-width-auto@s">
+                <button class="uk-button uk-button-secondary uk-button-large uk-width-1-1"
+                        onclick="start_countdown()">
                     Start the Clock!
                 </button>
             </div>
@@ -21,32 +42,25 @@
             <div class="uk-width-expand">
                 <progress class="uk-progress" value="0" max="30" id="pbar"></progress>
             </div>
-            <div class="uk-width-auto">
-                <button class="uk-button uk-button-primary uk-button-large" wire:click="solve">
+            <div class="uk-width-auto@s">
+                <button class="uk-button uk-button-primary uk-button-large uk-width-1-1"
+                        wire:click="solve">
                     Solve
                 </button>
             </div>
         @endif
-        <div class="uk-width-auto">
-            <a href="/" class="uk-button uk-button-large uk-button-secondary">
+        <div class="uk-width-auto@s uk-visible@m">
+            <a href="/" class="uk-button uk-button-large uk-button-secondary uk-width-1-1">
                 New Game
             </a>
         </div>
     </div>
-    <div class="uk-panel uk-background-muted uk-padding-small uk-margin-top">
-        <div class="uk-flex uk-flex-center">
-            @foreach($letters as $letter)
-                <div class="uk-card uk-card-body uk-card-small uk-card-primary uk-width-small uk-margin-right">
-                    <div class="uk-heading-large uk-text-center">{{ $letter }}</div>
-                </div>
-            @endforeach
-            @for ($i = 1; $i <= 9 - count($letters); $i++)
-                <div class="uk-card uk-card-body uk-card-small uk-card-default uk-width-small uk-margin-right">
-                    <div class="uk-heading-large uk-text-center">&nbsp;</div>
-                </div>
-            @endfor
-        </div>
-    </div>
+
+    <p class="uk-hidden@m">
+        <a href="/" class="uk-button uk-button-large uk-button-secondary uk-width-1-1">
+            New Game
+        </a>
+    </p>
     @if ($solutions)
         <p class="uk-text-center uk-text-large">
             @foreach($solutions as $solution)

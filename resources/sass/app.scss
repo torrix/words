@@ -5,3 +5,32 @@ $global-font-family: "Patua One", -apple-system, BlinkMacSystemFont, "Segoe UI",
 @import "~uikit/src/scss/variables-theme.scss";
 @import "~uikit/src/scss/mixins-theme.scss";
 @import "~uikit/src/scss/uikit-theme.scss";
+
+.uk-panel.uk-padding-small {
+    @media only screen and (max-width: $breakpoint-small) {
+        padding: 2px;
+    }
+}
+
+.uk-card-small.uk-card-body {
+    padding: 2px;
+    @media only screen and (max-width: $breakpoint-small) {
+        font-size: 24px;
+        &.uk-margin-small-right {
+            margin-right: 2px !important;
+        }
+    }
+    @media only screen and (min-width: $breakpoint-small) {
+        font-size: 48px;
+    }
+    @media only screen and (min-width: $breakpoint-medium) {
+        font-size: 64px;
+    }
+    @media only screen and (min-width: $breakpoint-large) {
+        font-size: 96px;
+    }
+}
+
+.uk-card-small.uk-card-body.uk-margin-small-right:last-child {
+    margin-right: 0 !important;
+}

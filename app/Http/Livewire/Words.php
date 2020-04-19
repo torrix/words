@@ -78,7 +78,7 @@ class Words extends Component
         // GenDic::generate();
         $solver = new Countdown();
 
-        $this->solutions = array_reverse($solver->solve(implode('', $this->letters), 100));
+        $this->solutions = array_filter(array_reverse($solver->solve(implode('', $this->letters), 100)));
     }
 
     public function render()

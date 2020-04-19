@@ -19,7 +19,9 @@
                 @yield('content')
                 <hr>
                 <p class="uk-text-right uk-text-small uk-text-muted">
-                    Made out of boredom during the 2020 lockdown by
+                    Made
+                    <span class="uk-visible@m">out of boredom during the 2020 lockdown</span>
+                    by
                     <a href="https://github.com/Torrix" target="_blank">Matt Fletcher</a>
                     at
                     <a href="https://torrix.uk/" target="_blank">Torrix</a>
